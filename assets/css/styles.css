@@ -1,0 +1,136 @@
+/* Sidebar styling */
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  color: var(--bs-link-color);
+  transition: transform 0.3s ease, margin-left 0.3s ease;
+  transform: translateX(-100%);
+  z-index: 2000;
+}
+
+#sidebar.active {
+  transform: translateX(0);
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#sidebar .sidebar-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+#sidebar .sidebar-header .close-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#sidebar .nav-link {
+  font-size: 1rem;
+  color: var(--bs-nav-link-color);
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s, color 0.3s;
+  gap: 1rem;
+}
+
+#sidebar .nav-link:hover {
+  color: var(--bs-dark);
+}
+
+#sidebar .nav-link .fa {
+  margin-right: 15px;
+}
+
+#sidebar .submenu {
+  padding-left: 2.4rem;
+  list-style-type: initial;
+}
+
+#sidebar .submenu a {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: var(--bs-nav-link-color);
+}
+
+#sidebar .submenu a:hover {
+}
+
+/* Overlay styling */
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1500;
+}
+
+#overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Main content styling */
+
+#content {
+  transition: margin-left 0.3s ease;
+}
+
+/* Sidebar always visible on LG and above */
+
+@media (min-width: 992px) {
+  #sidebar {
+    transform: translateX(0);
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  #content {
+    margin-left: 250px;
+  }
+}
+
+@media (min-width: 992px) {
+  #sidebar.active {
+    transform: translateX(-250px);
+  }
+}
+
+@media (min-width: 992px) {
+  #overlay {
+    display: none;
+  }
+}
+
+#sidebar {
+  overflow-y: scroll;
+}
+
+.nav-link:focus, .nav-link:hover {
+  color: var(--bs-nav-link-hover-color);
+}
+
+.card {
+  box-shadow: none;
+}
+
+#servicesSubmenu li::marker {
+  color: var(--bs-dark);
+}
+
